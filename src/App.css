@@ -1,0 +1,201 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.div {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.header-form {
+  position: relative;
+  box-shadow: 0 0 0.5em rgba(0,0,0,.25);
+  line-height: 1;
+  background-color: #FFF;
+  overflow: hidden;
+}
+
+@media only screen and (min-width: 568px) {
+.header-form>.content {
+    padding-bottom: 1.3125em;
+    padding-top: 1.3125em;
+}
+}
+
+.header-form>.content {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 75em;
+  padding: .9375em 1.25em;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*section main*/
+
+@media only screen and (min-width: 75rem){
+  main {
+    max-width: none;
+    background: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;
+  }
+}
+
+main {
+  padding: 1.5rem 1.275rem;
+  font-family: Helvetica,"Helvetica Nueue",Arial,sans-serif;
+  background: rgb(100%,100%,100%);
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+}
+
+main {
+  padding: 2.25rem 0;
+  background: #f2f2f2;
+}
+
+/*sign-in y sign-up sections*/
+
+@media only screen and (min-width: 75rem){
+.login-forms {
+    box-sizing: border-box;
+    display: flex;
+    margin: 0 auto;
+    padding: 2rem 3.125rem;
+    background: rgb(100%,100%,100%);
+    border: .1rem solid #c1c0c0;
+    box-shadow: 0 0.0625rem 0 0 #eae8e8;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    font-family: inherit;
+  }
+}
+
+.login-forms {
+  max-width: 75rem;
+}
+
+@media only screen and (min-width: 75rem) {
+.login-form-section {
+    flex: 1 1 32.9%;
+    order: 1;
+  }
+}
+
+@media only screen and (min-width: 75rem) {
+.signup-form-section {
+    flex: 1 1 67.1%;
+    margin-right: 3.25rem;
+    order: 0;
+    padding-right: 3.25rem;
+    border-right: .0625rem solid #c1c0c0;
+  }
+}
+
+@media only screen and (min-width: 75rem) {
+main section+section {
+    margin-top: 0;
+    padding-top: 0;
+  }
+}
+
+main {
+  padding: 2.25rem 0;
+  background: #f2f2f2;
+}
+
+/*Sobreescribiendo los estilos de algunos componentes*/
+
+.makeStyles-avatar-2 {
+  background-color: darkcyan !important;
+}
+
+.makeStyles-avatar-291 {
+  background-color: darkcyan !important;
+}
+
+.MuiButton-containedPrimary {
+  background-color: darkcyan !important;
+}
+
+.MuiTypography-colorPrimary {
+  color: darkcyan !important;
+}
+
+.MuiOutlinedInput-notchedOutline:hover {
+  border: 2px darkcyan solid !important;
+}
+
+.MuiContainer-root {
+  background-color: #FFF;
+}
+
+@media (min-width: 0px) {
+.MuiContainer-maxWidthXs {
+    max-width: 520px !important;
+  }
+}
+
+.footer-form {
+  padding: 2.1em 0;
+  border-top: .1em solid #ecebe9;
+  font-size: .75em;
+  text-align: center;
+}
