@@ -71,5 +71,8 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 ### Working together - final project front-end
 
 - Orlando Rodriguez: https://github.com/orlandogvk
+- Se instalaron las dependencias react-router-dom redux y react-redux
+
+
 
 
