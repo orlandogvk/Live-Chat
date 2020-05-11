@@ -12,6 +12,8 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { connect } from "react-redux";
+import {setCurrentRegister, register} from "../../../store/Actions/user-actions";
 
 function Copyright() {
   return (
@@ -46,8 +48,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignUp() {
+function SignUp(props) {
+  let { email, password }= props.user.currentRegister;
   const classes = useStyles();
+
 
   return (
     <Container component="main" maxWidth="xs">
@@ -59,7 +63,12 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form}
+         noValidate
+         onSubmit={e => {
+          e.preventDefault();
+          props.register();
+        }}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -93,6 +102,8 @@ export default function SignUp() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                onChange={e => props.setCurrentRegister(e)}
+                value={email}
               />
             </Grid>
             <Grid item xs={12}>
@@ -105,6 +116,8 @@ export default function SignUp() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={e => props.setCurrentRegister(e)}
+                value={password}
               />
             </Grid>
             <Grid item xs={12}>
@@ -138,3 +151,23 @@ export default function SignUp() {
     </Container>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setCurrentRegister: event => dispatch(setCurrentRegister(event)),
+    register: () => dispatch(register()),
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SignUp);
+
+

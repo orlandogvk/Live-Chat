@@ -1,37 +1,45 @@
 import React from 'react';
 import './App.css';
-import SignIn from './components/landin-page/sign-in';
-import SignUp from './components/landin-page/sign-up';
+import SignIn from './redux/View/Authentication/landin-page/sign-in';
+import SignUp from './redux/View/Authentication/landin-page/sign-up';
+import Navbar from './components/Navbar/Navbar-component';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 
-function App() {
+function App(props) {
+
   return (
-    <div className="login-or-signup-page">
-      <header className="header-form">
-        <div className="content">
-          <h1>Logo</h1>
-        </div>
-      </header>
-      <main>
-        <div className="login-forms">
-          <div className="login-form-section">
-            <div>
-              <SignIn></SignIn>              
+    <Router>
+        <div className="login-or-signup-page">
+              <Navbar/>
+          <main>
+            <div className="login-forms">
+              <div className="login-form-section">
+                <div>
+                  <SignIn></SignIn>              
+                </div>
+              </div>
+              <div className="signup-form-section">
+                <div>
+                  <SignUp></SignUp>
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="signup-form-section">
-            <div>
-              <SignUp></SignUp>
+          </main>
+
+          <footer className="footer-form">
+            <div className="content">
+              <h1>Footer</h1>
             </div>
-          </div>
+          </footer>
+
         </div>
-      </main>
-      <footer className="footer-form">
-        <div className="content">
-          <h1>Footer</h1>
-        </div>
-      </footer>
-    </div>
+    </Router>
   );
 }
 

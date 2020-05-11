@@ -72,7 +72,8 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 - Orlando Rodriguez: https://github.com/orlandogvk
 - Se instalaron las dependencias react-router-dom redux y react-redux
-
+-Se instalaron las otras dependencias adicionales como Redux-thunk y logger, se contruyo la estructura de carpetas de acuerdo a redux. Los archivos sign-in.jsx y sign-up.jsx se incluyeron dentro de la carpeta view/Authentication/landing-page.
+ 
 
 
 

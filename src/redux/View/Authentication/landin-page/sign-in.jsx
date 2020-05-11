@@ -12,8 +12,13 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { connect } from "react-redux";
+import {setCurrentLogin, login} from "../../../store/Actions/user-actions";
+
+
 
 function Copyright() {
+
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
@@ -46,7 +51,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn() {
+ function SignIn(props) {
+  let { emailLogin, passwordLogin }= props.user.currentLogin;
   const classes = useStyles();
 
   return (
@@ -59,7 +65,14 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} noValidate>
+        <form 
+        className={classes.form} 
+        noValidate
+        onSubmit={e => {
+          e.preventDefault();
+          props.login();
+        }}
+        >
           <TextField
             variant="outlined"
             margin="normal"
@@ -70,6 +83,8 @@ export default function SignIn() {
             name="email"
             autoComplete="email"
             autoFocus
+            onChange={e => props.setCurrentLogin(e)}
+            value={emailLogin}
           />
           <TextField
             variant="outlined"
@@ -81,6 +96,8 @@ export default function SignIn() {
             type="password"
             id="password"
             autoComplete="current-password"
+            onChange={e => props.setCurrentLogin(e)}
+            value={passwordLogin}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
@@ -115,3 +132,21 @@ export default function SignIn() {
     </Container>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setCurrentLogin: event => dispatch(setCurrentLogin(event)),
+    login: () => dispatch(login())
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SignIn);
